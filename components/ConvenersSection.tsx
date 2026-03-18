@@ -7,11 +7,11 @@ const conveners = [
   },
   {
     name: "Dr. Felix A",
-    role: "Co-Convener, Deputy Director – Hostel",
+    role: "Co-Convener, Deputy Director – Men's Hostel",
   },
   {
     name: "Dr. Velmathi G",
-    role: "Co-Convener, Deputy Director – Hostel",
+    role: "Co-Convener, Deputy Director – Ladies' Hostel",
   },
 ];
 
