@@ -31,7 +31,7 @@ export default function ProblemsSection() {
         <div className="relative z-10 max-w-7xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold">Problem Statements</h2>
           <p className="mt-1 text-gray-400 text-xs md:text-sm">
-            Explore 9 unique problem statements and build innovative solutions
+            Explore 11 unique problem statements and build innovative solutions
           </p>
 
           <div className="mt-8 md:mt-10 space-y-12">

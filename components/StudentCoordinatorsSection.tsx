@@ -2,8 +2,8 @@ import OrganizerCard from "./OrganizerCard";
 
 const coordinators = [
   {
-    name: "Ayushi Tewari",
-    phone: "+91-9883370097",
+    name: "Sparsh Karna",
+    phone: "+91-9868782772",
     role: "Student Coordinator",
   },
   {
@@ -16,7 +16,23 @@ const coordinators = [
     phone: "+91-9363734906",
     role: "Student Coordinator",
   },
+  {
+    name: "Avni Agrawal",
+    phone: "+91-7376197523",
+    role: "Student Coordinator",
+  },
+  {
+    name: "Harshitha K",
+    phone: "+91-9344537811",
+    role: "Student Coordinator",
+  },
+  {
+    name: "Aura Jain",
+    phone: "+91-9250980092",
+    role: "Student Coordinator",
+  },
 ];
+
 
 export default function StudentCoordinatorsSection({
   glass = false,

@@ -22,7 +22,7 @@ export default function ProblemsPage() {
           </p>*/}
 
           <p className="mt-4 text-xs md:text-sm text-gray-400">
-            9 UNIQUE CHALLENGES TO SOLVE
+            11 UNIQUE CHALLENGES TO SOLVE
           </p>
 
           {/*<p className="mt-2 text-xs md:text-sm text-gray-400">
