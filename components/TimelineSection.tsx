@@ -1,8 +1,8 @@
 "use client";
 
 const timeline = [
-  { date: "05 March '26", title: "Registration Starts" },
-  { date: "22 March '26", title: "Registration Ends" },
+  { date: "18 March '26", title: "Registration Starts" },
+  { date: "02 April '26", title: "Registration Ends" },
   { date: "03 April '26", title: "Hackathon Starts" },
   { date: "04 April '26", title: "Hackathon Ends" },
 ];

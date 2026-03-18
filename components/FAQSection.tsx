@@ -21,7 +21,7 @@ const faqs: FAQItem[] = [
   {
     question: "Is there any registration fee?",
     answer:
-      "Yes, the registration fee is ₹500 per team.",
+      "No, there is no registration fee for Solve-A-Thon.",
   },
   {
     question: "Will participants receive certificates and prizes?",

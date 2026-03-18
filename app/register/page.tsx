@@ -65,13 +65,13 @@ export default function RegisterPage() {
                 <li className="flex items-start gap-3 text-gray-300">
                   <span className="text-cyan-400 font-bold mt-1">•</span>
                   <span>
-                    Registration closes on <strong className="text-white">March 22, 2026</strong>
+                    Registration closes on <strong className="text-white">APRIL 02, 2026</strong>
                   </span>
                 </li>
                 <li className="flex items-start gap-3 text-gray-300">
                   <span className="text-cyan-400 font-bold mt-1">•</span>
                   <span>
-                    Participation Fee <strong className="text-white">₹500 per team</strong>
+                    Participation is <strong className="text-white">FREE</strong>
                   </span>
                 </li>
               </ul>

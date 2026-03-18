@@ -6,8 +6,7 @@ export default function ScrollingBar() {
   const blocks = [
     "Registrations Now Open for Solve-A-Thon’26",
     "03-04 April 2026",
-    "Secure Your Team’s Spot",
-    "Registration Fee: ₹500"
+    "Secure Your Team’s Spot"
   ];
 
   const containerRef = useRef<HTMLDivElement>(null);
