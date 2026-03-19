@@ -4,11 +4,11 @@ import ClientBackground from "@/components/ClientBackground";
 
 export const metadata: Metadata = {
   title: {
-    default: "Solve-A-Thon 2026",
-    template: "%s | Solve-A-Thon 2026",
+    default: "Solve-A-Thon'26",
+    template: "%s | Solve-A-Thon'26",
   },
   description:
-    "Solve-A-Thon 2026 is a 2-day inter-hostel hackathon hosted by VIT Chennai",
+    "Solve-A-Thon'26 is a 24-hour inter-hostel hackathon hosted by VIT Chennai",
 };
 
 export default function RootLayout({
