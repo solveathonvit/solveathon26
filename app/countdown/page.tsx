@@ -23,8 +23,8 @@ export default function CountdownPage() {
     setMounted(true);
     
     const calculateTimeLeft = () => {
-      // Event date: March 27, 2026 at 00:00:00
-      const eventDate = new Date("2026-03-27T00:00:00").getTime();
+      // Event date: April 3, 2026 at 16:00:00
+      const eventDate = new Date("2026-04-03T16:00:00").getTime();
       const now = new Date().getTime();
       const difference = eventDate - now;
 
