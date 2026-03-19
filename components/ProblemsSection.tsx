@@ -11,7 +11,7 @@ export default function ProblemsSection() {
   >(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleOpenProblem = (problem: (typeof problems)[0]) => {
+  const handleOpenProblem = (problem: (typeof themes)[0]["problems"][0]) => {
     setSelectedProblem(problem);
     setIsModalOpen(true);
   };
