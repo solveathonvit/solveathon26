@@ -126,10 +126,10 @@ export default function CountdownPage() {
             {/* Event Info */}
             <div className="text-center border-t border-white/10 pt-8">
               <p className="text-gray-400 text-sm md:text-base tracking-wider mb-2">
-                <span className="text-cyan-400 font-semibold text-lg md:text-xl">27TH - 28TH MARCH 2026</span>
+                <span className="text-cyan-400 font-semibold text-lg md:text-xl">3RD - 4TH APRIL 2026</span>
               </p>
               <p className="text-gray-500 text-xs md:text-sm tracking-wide">
-                Kasturiba Hall, VIT Chennai
+                AB-3 Amphitheatre, VIT Chennai
               </p>
             </div>
           </div>

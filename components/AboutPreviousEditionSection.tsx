@@ -28,10 +28,10 @@ export default function AboutPreviousEditionSection({
         {/* Description */}
 <div className="mt-8 text-gray-300 text-sm md:text-base leading-relaxed space-y-4">
   <p>
-    Solve-A-Thon &apos;25 was a 24-hour hackathon hosted by the Hostel Committee of VIT Chennai, uniting passionate innovators to solve real-world challenges across hostel life, sustainability, student well-being, and smart campus technology. The event encouraged empathy-driven thinking and practical, impact-focused solutions.
+    Solve-A-Thon&apos;25 was a 24-hour hackathon hosted by the Hostel Committee of VIT Chennai, uniting passionate innovators to solve real-world challenges across hostel life, sustainability, student well-being, and smart campus technology. The event encouraged empathy-driven thinking and practical, impact-focused solutions.
   </p>
   <p>
-    Through rapid collaboration, mentorship, and hands-on prototyping, participants developed high-quality projects and strengthened the culture of innovation at VIT Chennai. With 100+ participants and a ₹60,000 prize pool, Solve-A-Thon &apos;25 set the stage for an even bigger 2026 edition.
+    Through rapid collaboration, mentorship, and hands-on prototyping, participants developed high-quality projects and strengthened the culture of innovation at VIT Chennai. With 100+ participants and a ₹60,000 prize pool, Solve-A-Thon&apos;25 set the stage for an even bigger 2026 edition.
   </p>
 </div>
 
