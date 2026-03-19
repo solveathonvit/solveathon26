@@ -109,7 +109,7 @@ export default function Footer() {
         {/* Divider */}
         <div className="mt-8 md:mt-12 border-t border-white/10 pt-6">
           <p className="text-gray-400 text-xs md:text-sm text-center">
-            &copy; 2026 Solve-A-Thon VIT Chennai. All rights reserved.
+            &copy; Solve-A-Thon'26 VIT Chennai
           </p>
         </div>
       </div>
