@@ -18,15 +18,27 @@ export default function CountdownPage() {
     seconds: 0,
   });
   const [mounted, setMounted] = useState(false);
+  const [countdownActive, setCountdownActive] = useState(false);
+  const [countdownEndTime, setCountdownEndTime] = useState<number | null>(null);
+
+  const startCountdown = () => {
+    const now = new Date().getTime();
+    const endTime = now + 24 * 60 * 60 * 1000; // 24 hours from now
+    setCountdownEndTime(endTime);
+    setCountdownActive(true);
+  };
 
   useEffect(() => {
     setMounted(true);
     
     const calculateTimeLeft = () => {
-      // Event date: April 3, 2026 at 16:00:00
-      const eventDate = new Date("2026-04-03T16:00:00").getTime();
+      if (!countdownActive || !countdownEndTime) {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+        return;
+      }
+
       const now = new Date().getTime();
-      const difference = eventDate - now;
+      const difference = countdownEndTime - now;
 
       if (difference > 0) {
         const days = Math.floor(difference / (1000 * 60 * 60 * 24));
@@ -37,19 +49,83 @@ export default function CountdownPage() {
         setTimeLeft({ days, hours, minutes, seconds });
       } else {
         setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+        setCountdownActive(false);
       }
     };
 
-    calculateTimeLeft();
-    const timer = setInterval(calculateTimeLeft, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
+    if (countdownActive) {
+      calculateTimeLeft();
+      const timer = setInterval(calculateTimeLeft, 1000);
+      return () => clearInterval(timer);
+    }
+  }, [countdownActive, countdownEndTime]);
 
   if (!mounted) {
     return null;
   }
 
+  // START BUTTON SCREEN
+  if (!countdownActive) {
+    return (
+      <div className="relative min-h-screen w-full bg-black overflow-hidden">
+        {/* GridScan Background */}
+        <div className="absolute inset-0 z-0">
+          <GridScan 
+            className="fixed inset-0 w-full h-full"
+            style={{
+              zIndex: 0,
+              pointerEvents: "none",
+              opacity: 0.72,
+              filter: "saturate(0.9) brightness(0.85) contrast(0.95)",
+            }}
+            linesColor="#0891b2"
+            scanColor="#34d399"
+            scanOpacity={0.18}
+            gridScale={0.16}
+            lineThickness={1.2}
+            noiseIntensity={0.008}
+            chromaticAberration={0.0015}
+          />
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 flex items-center justify-center min-h-screen px-4 md:px-8 py-12">
+          <div className="relative w-full max-w-2xl">
+            {/* Decorative background elements */}
+            <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/5 blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-emerald-500/5 blur-3xl pointer-events-none" />
+
+            {/* Main container with sharp edges */}
+            <div className="relative bg-neutral-900/40 backdrop-blur-md border border-white/10 p-8 md:p-12 shadow-2xl">
+              <div className="text-center mb-12">
+                <h1 className="text-4xl md:text-5xl font-bold text-cyan-400 tracking-widest mb-6">
+                  SOLVE-A-THON&apos;26
+                </h1>
+                <p className="text-gray-400 text-xs md:text-sm tracking-wider mb-3">
+                  VIT Chennai Inter Hostel Hackathon
+                </p>
+                <p className="text-gray-500 text-xs tracking-wide">
+                  3 - 4 April 2026 | AB-3 Amphitheatre | 24 Hour Hackathon
+                </p>
+              </div>
+
+              <div className="flex justify-center">
+                <button
+                  onClick={startCountdown}
+                  className="px-8 py-3 md:px-10 md:py-4 bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-black font-bold text-base md:text-lg tracking-widest shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 uppercase flex items-center gap-3"
+                >
+                  <i className="fas fa-play" />
+                  Start Countdown
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // COUNTDOWN SCREEN
   return (
     <div className="relative min-h-screen w-full bg-black overflow-hidden">
       {/* GridScan Background */}
@@ -62,7 +138,6 @@ export default function CountdownPage() {
             opacity: 0.72,
             filter: "saturate(0.9) brightness(0.85) contrast(0.95)",
           }}
-          // Softer palette for the dark theme
           linesColor="#0891b2"
           scanColor="#34d399"
           scanOpacity={0.18}
@@ -78,11 +153,11 @@ export default function CountdownPage() {
         {/* Glassmorphism Container */}
         <div className="relative w-full max-w-6xl">
           {/* Decorative background elements */}
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/5  blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-emerald-500/5  blur-3xl pointer-events-none" />
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/5 blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-emerald-500/5 blur-3xl pointer-events-none" />
 
-          {/* Main glassmorphism card */}
-          <div className="relative bg-neutral-900/40 backdrop-blur-md border border-white/10  p-8 md:p-12 shadow-2xl">
+          {/* Main card with sharp edges */}
+          <div className="relative bg-neutral-900/40 backdrop-blur-md border border-white/10 p-8 md:p-12 shadow-2xl">
             <div className="text-center mb-10">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-cyan-400 tracking-widest mb-4">
                 SOLVE-A-THON&apos;26
@@ -125,11 +200,8 @@ export default function CountdownPage() {
 
             {/* Event Info */}
             <div className="text-center border-t border-white/10 pt-8">
-              <p className="text-gray-400 text-sm md:text-base tracking-wider mb-2">
-                <span className="text-cyan-400 font-semibold text-lg md:text-xl">3RD - 4TH APRIL 2026</span>
-              </p>
-              <p className="text-gray-500 text-xs md:text-sm tracking-wide">
-                AB-3 Amphitheatre, VIT Chennai
+              <p className="text-gray-400 text-sm md:text-base tracking-wider">
+                <span className="text-emerald-400 font-semibold text-lg md:text-xl">24-HOUR CHALLENGE</span>
               </p>
             </div>
           </div>
