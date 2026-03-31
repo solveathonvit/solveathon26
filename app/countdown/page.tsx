@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { GridScan } from "../../components/GridScan";
 
 type TimeLeft = {
@@ -21,12 +21,40 @@ export default function CountdownPage() {
   const [countdownActive, setCountdownActive] = useState(false);
   const [countdownEndTime, setCountdownEndTime] = useState<number | null>(null);
 
-  const startCountdown = () => {
+  const startCountdown = useCallback(() => {
+    if (countdownActive) {
+      return;
+    }
+
     const now = new Date().getTime();
     const endTime = now + 24 * 60 * 60 * 1000; // 24 hours from now
     setCountdownEndTime(endTime);
     setCountdownActive(true);
-  };
+  }, [countdownActive]);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (countdownActive || event.repeat) {
+        return;
+      }
+
+      if (
+        event.key === "ArrowRight" ||
+        event.key === "Enter" ||
+        event.key === " " ||
+        event.code === "Space"
+      ) {
+        event.preventDefault();
+        startCountdown();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [countdownActive, startCountdown]);
 
   useEffect(() => {
     setMounted(true);
@@ -90,21 +118,21 @@ export default function CountdownPage() {
 
         {/* Content */}
         <div className="relative z-10 flex items-center justify-center min-h-screen px-4 md:px-8 py-12">
-          <div className="relative w-full max-w-2xl">
+          <div className="relative w-full max-w-4xl lg:max-w-5xl">
             {/* Decorative background elements */}
             <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/5 blur-3xl pointer-events-none" />
             <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-emerald-500/5 blur-3xl pointer-events-none" />
 
             {/* Main container with sharp edges */}
-            <div className="relative bg-neutral-900/40 backdrop-blur-md border border-white/10 p-8 md:p-12 shadow-2xl">
-              <div className="text-center mb-12">
-                <h1 className="text-4xl md:text-5xl font-bold text-cyan-400 tracking-widest mb-6">
+            <div className="relative bg-neutral-900/40 backdrop-blur-md border border-white/10 p-10 md:p-16 shadow-2xl">
+              <div className="text-center mb-14 md:mb-16">
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-cyan-400 tracking-widest mb-7">
                   SOLVE-A-THON&apos;26
                 </h1>
-                <p className="text-gray-400 text-xs md:text-sm tracking-wider mb-3">
+                <p className="text-gray-300 text-base md:text-xl tracking-wider mb-4">
                   VIT Chennai Inter Hostel Hackathon
                 </p>
-                <p className="text-gray-500 text-xs tracking-wide">
+                <p className="text-gray-400 text-base md:text-lg tracking-wide">
                   3 - 4 April 2026 | AB-3 Amphitheatre | 24 Hour Hackathon
                 </p>
               </div>
@@ -112,7 +140,7 @@ export default function CountdownPage() {
               <div className="flex justify-center">
                 <button
                   onClick={startCountdown}
-                  className="px-8 py-3 md:px-10 md:py-4 bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-black font-bold text-base md:text-lg tracking-widest shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 uppercase flex items-center gap-3"
+                  className="px-10 py-4 md:px-14 md:py-5 bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-black font-bold text-lg md:text-2xl tracking-widest shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 uppercase flex items-center gap-3"
                 >
                   <i className="fas fa-play" />
                   Start Countdown
