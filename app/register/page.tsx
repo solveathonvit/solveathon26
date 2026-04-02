@@ -33,7 +33,7 @@ export default function RegisterPage() {
               </p>*/}
 
               <p className="text-gray-400 text-sm md:text-base mb-10">
-                03 – 04 APRIL 2026 | VIT CHENNAI
+                3RD – 4TH APRIL 2026 | VIT CHENNAI
               </p>
             </div>
 
