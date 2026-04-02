@@ -16,7 +16,7 @@ const faqs: FAQItem[] = [
   {
     question: "What is the team size?",
     answer:
-      "Each team must consist of exactly 5 members, so participants must form teams accordingly before registration.",
+       "Each team can have 1–5 members. Please form your team before registering.",
   },
   {
     question: "Is there any registration fee?",

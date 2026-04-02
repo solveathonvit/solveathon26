@@ -53,7 +53,7 @@ export default function RegisterPage() {
                 <li className="flex items-start gap-3 text-gray-300">
                   <span className="text-cyan-400 font-bold mt-1">•</span>
                   <span>
-                    Teams must consist of <strong className="text-white">5 members</strong>
+                    Each team may include <strong className="text-white">1–5 members</strong>
                   </span>
                 </li>
                 <li className="flex items-start gap-3 text-gray-300">
