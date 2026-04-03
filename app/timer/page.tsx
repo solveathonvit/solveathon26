@@ -426,6 +426,31 @@ export default function CountdownPage() {
   const [secondsFlashTick, setSecondsFlashTick] = useState(0);
   const previousSecondRef = useRef(-1);
 
+  const isPresentationNextTrigger = useCallback((event: KeyboardEvent) => {
+    const nextKeys = new Set([
+      "ArrowRight",
+      "Right",
+      "PageDown",
+      "Enter",
+      "NumpadEnter",
+      " ",
+      "Space",
+      "Spacebar",
+      "MediaTrackNext",
+    ]);
+
+    const nextCodes = new Set([
+      "ArrowRight",
+      "PageDown",
+      "Enter",
+      "NumpadEnter",
+      "Space",
+      "MediaTrackNext",
+    ]);
+
+    return nextKeys.has(event.key) || nextCodes.has(event.code);
+  }, []);
+
   const startCountdown = useCallback(() => {
     if (countdownActive) return;
     const endTime = new Date().getTime() + 24 * 60 * 60 * 1000;
@@ -436,19 +461,14 @@ export default function CountdownPage() {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (countdownActive || e.repeat) return;
-      if (
-        e.key === "ArrowRight" ||
-        e.key === "Enter" ||
-        e.key === " " ||
-        e.code === "Space"
-      ) {
+      if (isPresentationNextTrigger(e)) {
         e.preventDefault();
         startCountdown();
       }
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [countdownActive, startCountdown]);
+  }, [countdownActive, isPresentationNextTrigger, startCountdown]);
 
   useEffect(() => {
     setMounted(true);
