@@ -13,16 +13,14 @@ function UnitCard({
   value,
   label,
   delayClass,
-  flash,
 }: {
   value: string;
   label: string;
   delayClass: string;
-  flash?: boolean;
 }) {
   return (
     <div className={`unit-card fade-up ${delayClass}`}>
-      <span key={`${label}-${value}`} className={`unit-num ${flash ? "flash" : ""}`}>
+      <span className="unit-num">
         {value}
       </span>
       <span className="unit-label">{label}</span>
@@ -89,7 +87,7 @@ const GLOBAL_CSS = `
     position: relative;
     z-index: 1;
     width: 100%;
-    max-width: 800px;
+    max-width: 900px;
   }
 
   .screen {
@@ -115,7 +113,7 @@ const GLOBAL_CSS = `
   }
 
   .eyebrow-text {
-    font-size: 16px;
+    font-size: 22px;
     font-weight: 500;
     letter-spacing: 0.16em;
     text-transform: uppercase;
@@ -123,7 +121,7 @@ const GLOBAL_CSS = `
   }
 
   .headline {
-    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-size: clamp(3rem, 9vw, 5rem);
     font-weight: 800;
     letter-spacing: -0.02em;
     line-height: 0.95;
@@ -150,14 +148,14 @@ const GLOBAL_CSS = `
   }
 
   .meta-label {
-    font-size: 16px;
+    font-size: 20px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--text-muted);
   }
 
   .meta-value {
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 500;
     color: var(--text-secondary);
   }
@@ -236,7 +234,7 @@ const GLOBAL_CSS = `
     font-weight: 500;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--text-secondary);
+    color: var(--text-primary);
     margin-bottom: 1rem;
   }
 
@@ -361,7 +359,7 @@ const GLOBAL_CSS = `
 
   .cd-footer-right {
     font-size: 16px;
-    color: var(--text-muted);
+    color: var(--text-secondary);
     letter-spacing: 0.06em;
   }
 
@@ -380,12 +378,8 @@ const GLOBAL_CSS = `
 
   .supporting-text {
     font-size: 16px;
-    color: var(--text-muted);
+    color: var(--text-secondary);
     letter-spacing: 0.06em;
-  }
-
-  .flash {
-    animation: flash 0.12s ease;
   }
 
   @keyframes pulse {
@@ -395,11 +389,6 @@ const GLOBAL_CSS = `
 
   @keyframes fadeUp {
     to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes flash {
-    0% { color: var(--accent); }
-    100% { color: var(--text-primary); }
   }
 
   @media (max-width: 540px) {
@@ -423,7 +412,6 @@ export default function CountdownPage() {
   const [mounted, setMounted] = useState(false);
   const [countdownActive, setCountdownActive] = useState(false);
   const [countdownEndTime, setCountdownEndTime] = useState<number | null>(null);
-  const [secondsFlashTick, setSecondsFlashTick] = useState(0);
   const previousSecondRef = useRef(-1);
 
   const isPresentationNextTrigger = useCallback((event: KeyboardEvent) => {
@@ -508,10 +496,7 @@ export default function CountdownPage() {
 
       if (diff > 0) {
         const nextSeconds = Math.floor((diff / 1000) % 60);
-        if (nextSeconds !== previousSecondRef.current) {
-          previousSecondRef.current = nextSeconds;
-          setSecondsFlashTick((tick) => tick + 1);
-        }
+        previousSecondRef.current = nextSeconds;
 
         setTimeLeft({
           days: Math.floor(diff / (1000 * 60 * 60 * 24)),
@@ -616,7 +601,6 @@ export default function CountdownPage() {
                     value={unit.value}
                     label={unit.label}
                     delayClass={unit.delayClass}
-                    flash={unit.label === "Seconds" && secondsFlashTick > 0}
                   />
                 ))}
               </div>
