@@ -451,6 +451,10 @@ export default function CountdownPage() {
     return nextKeys.has(event.key) || nextCodes.has(event.code);
   }, []);
 
+  const isResetTrigger = useCallback((event: KeyboardEvent) => {
+    return event.key.toLowerCase() === "a" || event.code === "KeyA";
+  }, []);
+
   const startCountdown = useCallback(() => {
     if (countdownActive) return;
     const endTime = new Date().getTime() + 24 * 60 * 60 * 1000;
@@ -458,17 +462,37 @@ export default function CountdownPage() {
     setCountdownActive(true);
   }, [countdownActive]);
 
+  const resetCountdown = useCallback(() => {
+    setCountdownActive(false);
+    setCountdownEndTime(null);
+    setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+    previousSecondRef.current = -1;
+  }, []);
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (countdownActive || e.repeat) return;
-      if (isPresentationNextTrigger(e)) {
+      if (e.repeat) return;
+
+      if (countdownActive && isResetTrigger(e)) {
+        e.preventDefault();
+        resetCountdown();
+        return;
+      }
+
+      if (!countdownActive && isPresentationNextTrigger(e)) {
         e.preventDefault();
         startCountdown();
       }
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [countdownActive, isPresentationNextTrigger, startCountdown]);
+  }, [
+    countdownActive,
+    isPresentationNextTrigger,
+    isResetTrigger,
+    resetCountdown,
+    startCountdown,
+  ]);
 
   useEffect(() => {
     setMounted(true);
@@ -498,6 +522,7 @@ export default function CountdownPage() {
       } else {
         setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
         setCountdownActive(false);
+        setCountdownEndTime(null);
         previousSecondRef.current = -1;
       }
     };
