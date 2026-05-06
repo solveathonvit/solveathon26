@@ -152,29 +152,29 @@ const hostelTeam = [
 
 export default function HostelTeamSection({ glass = true }: { glass?: boolean }) {
   const baseClasses =
-    "relative px-4 md:px-8 lg:px-20 py-12 md:py-16 overflow-hidden";
-  const glassClasses = " bg-neutral-900/70 border-t border-white/10";
+    "timer-typography relative px-4 md:px-8 lg:px-20 py-12 md:py-16 overflow-hidden";
+  const glassClasses = " bg-[#07080a]/90 border-t border-white/10";
 
   return (
     <section className={baseClasses + (glass ? glassClasses : "")}>
       {/* Decorative background elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-[#c8f059]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-sky-300/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-10 max-w-6xl mx-auto">
-        <h2 className="text-2xl md:text-3xl font-bold">Hostel Team</h2>
+        <h2 className="timer-headline text-2xl md:text-3xl font-bold">Hostel Team</h2>
         {/*<p className="mt-2 text-xs md:text-sm text-gray-400">
           Wardens, superintendents, and supervisors for day-to-day operations.
         </p>*/}
 
-        <ul className="mt-8 md:columns-2 md:gap-x-10 text-sm md:text-base text-gray-200">
+        <ul className="mt-8 md:columns-2 md:gap-x-10 text-sm md:text-base text-white/80">
           {hostelTeam.map((member) => (
             <li
               key={`${member.name}-${member.email}-${member.role}`}
               className="flex items-start justify-between gap-3 border-b border-white/10 pb-3 mb-3 break-inside-avoid"
             >
               <div className="text-white font-semibold">{member.name}</div>
-              <div className="text-gray-400 text-right text-xs md:text-sm">
+              <div className="text-white/55 text-right text-xs md:text-sm">
                 {member.role}
               </div>
             </li>

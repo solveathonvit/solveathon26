@@ -23,14 +23,14 @@ export default function ProblemsSection() {
 
   return (
     <>
-      <section className="relative px-4 md:px-8 lg:px-20 py-12 md:py-16 bg-neutral-900/70 border-t border-white/10 overflow-hidden">
+      <section className="timer-typography relative px-4 md:px-8 lg:px-20 py-12 md:py-16 bg-[#07080a]/90 border-t border-white/10 overflow-hidden">
         {/* Decorative background elements */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#c8f059]/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-sky-300/5 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold">Problem Statements</h2>
-          <p className="mt-1 text-gray-400 text-xs md:text-sm">
+          <h2 className="timer-headline text-3xl md:text-4xl font-extrabold">Problem Statements</h2>
+          <p className="timer-mono mt-2 text-white/60 text-xs md:text-sm uppercase tracking-[0.12em]">
             Explore 11 unique problem statements and build innovative solutions
           </p>
 
@@ -42,10 +42,10 @@ export default function ProblemsSection() {
                 className="scroll-mt-28"
               >
                 <div className="flex flex-wrap items-center gap-3">
-                  <div className="inline-flex items-center bg-emerald-400 text-black px-2.5 py-1 text-[10px] md:text-xs font-bold tracking-widest">
+                  <div className="inline-flex items-center bg-[#c8f059] text-black px-2.5 py-1 text-[10px] md:text-xs font-bold tracking-widest">
                     THEME {theme.number}
                   </div>
-                  <h3 className="text-xl md:text-2xl font-bold text-cyan-400 tracking-wide">
+                  <h3 className="text-xl md:text-2xl font-bold text-white/90 tracking-wide">
                     {theme.title}
                   </h3>
                 </div>

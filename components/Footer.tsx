@@ -9,23 +9,23 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative border-t border-white/10 bg-neutral-900/75 overflow-hidden">
+    <footer className="timer-typography relative border-t border-white/10 bg-[#07080a]/95 overflow-hidden">
       {/* Decorative background elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-[#c8f059]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-sky-300/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-10 px-4 md:px-8 lg:px-20 py-12 md:py-16 max-w-6xl mx-auto">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {/* Branding */}
           <div>
-            <h3 className="text-xl md:text-2xl font-bold text-cyan-400 tracking-widest mb-4">
+            <h3 className="timer-headline text-xl md:text-2xl font-bold text-white/90 tracking-widest mb-4">
               SOLVE-A-THON&apos;26
             </h3>
-            <p className="text-gray-400 text-xs md:text-sm leading-relaxed">
+            <p className="text-white/70 text-xs md:text-sm leading-relaxed uppercase tracking-[0.08em]">
               Code - Compete - Conquer
             </p>
-            <p className="text-gray-500 text-xs mt-2">
+            <p className="timer-mono text-white/55 text-xs mt-2 uppercase tracking-widest">
               3rd - 4th April 2026
             </p>
           </div>
@@ -40,9 +40,9 @@ export default function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-gray-400 hover:text-cyan-400 transition text-xs md:text-sm tracking-wide flex items-center gap-2"
+                    className="text-white/65 hover:text-[#c8f059] transition text-xs md:text-sm tracking-wide flex items-center gap-2"
                   >
-                    <i className="fas fa-chevron-right text-emerald-300 text-[10px]" />
+                    <i className="fas fa-chevron-right text-[#c8f059] text-[10px]" />
                     {link.label}
                   </a>
                 </li>
@@ -59,38 +59,38 @@ export default function Footer() {
               <div>
                 <p className="font-medium text-white text-sm md:text-base">
                   Dr. Natarajan B
-                  <span className="block text-gray-400 text-xs md:text-sm font-normal">
+                  <span className="block text-white/60 text-xs md:text-sm font-normal">
                     Event Coordinator
                   </span>
                 </p>
 
                 <a
                   href="mailto:natarajan.b@vit.ac.in"
-                  className="mt-2 inline-flex items-center gap-2 text-gray-300 hover:text-cyan-400 transition-colors text-sm"
+                  className="mt-2 inline-flex items-center gap-2 text-white/70 hover:text-[#c8f059] transition-colors text-sm"
                 >
-                  <i className="fas fa-envelope text-cyan-400" />
+                  <i className="fas fa-envelope text-[#c8f059]" />
                   natarajan.b@vit.ac.in
                 </a>
               </div>
               <div>
                 <p className="font-medium text-white text-sm md:text-base">
                   Dr. Revathi M
-                  <span className="block text-gray-400 text-xs md:text-sm font-normal">
+                  <span className="block text-white/60 text-xs md:text-sm font-normal">
                     Event Coordinator
                   </span>
                 </p>
 
                 <a
                   href="mailto:m.revathi@vit.ac.in"
-                  className="mt-2 inline-flex items-center gap-2 text-gray-300 hover:text-cyan-400 transition-colors text-sm"
+                  className="mt-2 inline-flex items-center gap-2 text-white/70 hover:text-[#c8f059] transition-colors text-sm"
                 >
-                  <i className="fas fa-envelope text-cyan-400" />
+                  <i className="fas fa-envelope text-[#c8f059]" />
                   m.revathi@vit.ac.in
                 </a>
               </div>
 
-  <div className="flex items-start gap-2 text-gray-400 text-sm">
-    <i className="fas fa-map-marker-alt text-emerald-300 mt-1 flex-shrink-0" />
+  <div className="flex items-start gap-2 text-white/65 text-sm">
+    <i className="fas fa-map-marker-alt text-[#c8f059] mt-1 shrink-0" />
     <span>
       VIT Chennai<br />
     </span>
@@ -99,7 +99,7 @@ export default function Footer() {
   {/* Optional: add phone if you have official contact */}
   {/* 
   <div className="flex items-center gap-2 text-gray-300 text-sm">
-    <i className="fas fa-phone-alt text-cyan-400" />
+    <i className="fas fa-phone-alt text-[#c8f059]" />
     <span>+91 44 3993 1555 (General Enquiry)</span>
   </div>
   */}
@@ -108,7 +108,7 @@ export default function Footer() {
 
         {/* Divider */}
         <div className="mt-8 md:mt-12 border-t border-white/10 pt-6">
-          <p className="text-gray-400 text-xs md:text-sm text-center">
+          <p className="timer-mono text-white/55 text-xs md:text-sm text-center uppercase tracking-[0.08em]">
             &copy; Solve-A-Thon'26 VIT Chennai
           </p>
         </div>

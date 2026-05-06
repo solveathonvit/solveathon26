@@ -32,18 +32,18 @@ export default function GallerySection({ glass = false }: { glass?: boolean }) {
     : galleries[activeTab].slice(0, 3);
 
   const baseClasses =
-    "relative px-4 md:px-8 lg:px-20 py-12 md:py-16 overflow-hidden";
-  const glassClasses = " bg-neutral-900/70 border-t border-white/10";
+    "timer-typography relative px-4 md:px-8 lg:px-20 py-12 md:py-16 overflow-hidden";
+  const glassClasses = " bg-[#07080a]/90 border-t border-white/10";
 
   return (
     <section id="gallery" className={baseClasses + (glass ? glassClasses : "")}>
       {/* Decorative background elements */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-sky-300/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#c8f059]/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-10 max-w-6xl mx-auto">
-        <h2 className="text-2xl md:text-3xl font-bold">Gallery</h2>
-        <p className="mt-1 text-gray-400 text-sm">
+        <h2 className="timer-headline text-2xl md:text-3xl font-bold">Gallery</h2>
+        <p className="timer-mono mt-2 text-xs md:text-sm text-white/60 uppercase tracking-[0.12em]">
           Moments from previous editions
         </p>
 
@@ -61,8 +61,8 @@ export default function GallerySection({ glass = false }: { glass?: boolean }) {
               }}
               className={`px-3 sm:px-6 py-2 sm:py-3 font-bold tracking-widest transition whitespace-nowrap sm:whitespace-normal text-xs sm:text-sm ${
                 activeTab === item.year
-                  ? "text-cyan-400 border-b-2 border-cyan-400"
-                  : "text-gray-400 hover:text-gray-300"
+                  ? "text-[#c8f059] border-b-2 border-[#c8f059]"
+                  : "text-white/55 hover:text-white/75"
               }`}
             >
               SOLVE-A-THON &apos;{item.label}
@@ -75,7 +75,7 @@ export default function GallerySection({ glass = false }: { glass?: boolean }) {
           {displayedImages.map((image, idx) => (
             <div
               key={idx}
-              className="group relative aspect-video overflow-hidden border border-cyan-400/40 hover:border-cyan-400 transition"
+              className="group relative aspect-video overflow-hidden border border-white/15 hover:border-[#c8f059]/55 transition"
             >
               <img
                 src={image}
@@ -92,7 +92,7 @@ export default function GallerySection({ glass = false }: { glass?: boolean }) {
           <div className="mt-8 text-center">
             <button
               onClick={() => setShowAll(true)}
-              className="bg-cyan-400 text-black px-8 py-3 font-bold uppercase tracking-widest text-sm hover:bg-cyan-300 transition cursor-pointer"
+              className="timer-accent-btn px-8 py-3 text-sm cursor-pointer"
             >
               Show More
             </button>

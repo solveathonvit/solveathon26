@@ -4,9 +4,10 @@ import { useEffect, useRef, useState } from "react";
 
 export default function ScrollingBar() {
   const blocks = [
-    "Registrations Now Open for Solve-A-Thon’26",
-    "03-04 April 2026",
-    "Secure Your Team’s Spot"
+    "Registrations Open",
+    "3 - 4 April 2026",
+    "AB-3 Amphitheatre",
+    "24-Hour Challenge"
   ];
 
   const containerRef = useRef<HTMLDivElement>(null);
@@ -45,23 +46,26 @@ export default function ScrollingBar() {
   }, []);
 
   return (
-    <div ref={containerRef} className="w-full bg-emerald-400 py-1.5 overflow-hidden">
+    <div
+      ref={containerRef}
+      className="timer-typography w-full overflow-hidden border-y border-white/10 bg-[#07080a]/95"
+    >
       <div
         ref={trackRef}
-        className="flex w-max items-center animate-scroll"
+        className="flex w-max items-center py-2.5 animate-scroll"
       >
         {Array.from({ length: setCount }).map((_, setIdx) => (
           <div
             key={`set-${setIdx}`}
-            className="flex items-center gap-10 pr-10 content-set"
+            className="flex items-center gap-12 pr-12 content-set"
             aria-hidden={setIdx > 0}
           >
             {blocks.map((block, idx) => (
-              <div key={`${setIdx}-${idx}`} className="flex items-center gap-10">
-                <span className="text-black font-bold text-xs md:text-sm tracking-widest whitespace-nowrap">
+              <div key={`${setIdx}-${idx}`} className="flex items-center gap-12">
+                <span className="text-white/80 font-semibold text-xs md:text-sm tracking-[0.16em] uppercase whitespace-nowrap">
                   {block}
                 </span>
-                <span className="text-black/80">•</span>
+                <span className="h-1.5 w-1.5 rounded-full bg-[#c8f059]" />
               </div>
             ))}
           </div>

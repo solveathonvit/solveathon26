@@ -22,8 +22,8 @@ export default function EventCountdown({ glass = true }: { glass?: boolean }) {
     setMounted(true);
     
     const calculateTimeLeft = () => {
-      // Event date: April 3, 2026 at 16:00:00
-      const eventDate = new Date("2026-04-03T16:00:00").getTime();
+      // Event date: April 12, 2026 at 16:00:00
+      const eventDate = new Date("2026-04-12T16:00:00").getTime();
       const now = new Date().getTime();
       const difference = eventDate - now;
 
@@ -49,28 +49,29 @@ export default function EventCountdown({ glass = true }: { glass?: boolean }) {
     return null;
   }
 
-  const baseClasses =
-    "relative px-4 md:px-8 lg:px-20 py-12 md:py-16 overflow-hidden";
-  const glassClasses = " bg-neutral-900/90 border-t border-white/10";
+  const baseClasses = "timer-typography relative px-4 md:px-6 lg:px-8 py-14 md:py-18 overflow-hidden";
+  const glassClasses = " bg-[#07080a]/95 border-t border-white/10";
 
   return (
     <section className={baseClasses + (glass ? glassClasses : "")}>
       {/* Decorative background elements */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#c8f059]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-sky-300/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="relative z-10 max-w-6xl mx-auto">
-        <div className="text-center mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-cyan-400 tracking-widest mb-2">
-            EVENT COUNTDOWN
+      <div className="relative z-10 max-w-5xl mx-auto">
+        <div className="mb-10 md:mb-12 text-center">
+          <p className="text-[11px] md:text-xs uppercase tracking-[0.2em] text-white/60 mb-2 hidden">
+            Solve-A-Thon &apos;26
+          </p>
+          <h2 className="timer-headline text-2xl md:text-4xl font-extrabold mb-3">
+            Event Countdown
           </h2>
-          <p className="text-gray-400 text-xs md:text-sm tracking-wider">
-            The ultimate hackathon awaits. Are you ready?
+          <p className="timer-mono text-white/55 text-xs md:text-sm uppercase tracking-[0.12em] hidden">
+            VIT Chennai - Inter Hostel Hackathon
           </p>
         </div>
 
-        {/* Countdown Cards */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-white/10 border border-white/10 rounded-sm overflow-hidden">
           {[
             { label: "DAYS", value: timeLeft.days },
             { label: "HOURS", value: timeLeft.hours },
@@ -79,28 +80,21 @@ export default function EventCountdown({ glass = true }: { glass?: boolean }) {
           ].map((item) => (
             <div
               key={item.label}
-              className="group relative"
+              className="bg-[#07080a] px-4 md:px-5 py-7 md:py-9 text-left hover:bg-white/4 transition-colors duration-200"
             >
-              {/* Glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 to-emerald-400/20  blur opacity-0 group-hover:opacity-100 transition duration-300" />
-
-              <div className="relative bg-neutral-900/80 border-2 border-cyan-400/40 
-               p-6 max-sm:p-4 text-center backdrop-blur-sm hover:border-cyan-400 transition-all duration-300">
-                <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-emerald-300 font-mono mb-2">
-                  {String(item.value).padStart(2, "0")}
-                </div>
-                <div className="text-[10px] sm:text-xs tracking-widest text-gray-400 uppercase font-bold">
-                  {item.label}
-                </div>
+              <div className="timer-mono text-4xl sm:text-5xl md:text-6xl font-light leading-none tracking-[-0.04em] text-white/95 mb-2">
+                {String(item.value).padStart(2, "0")}
+              </div>
+              <div className="text-[10px] sm:text-xs tracking-[0.18em] text-white/45 uppercase font-semibold">
+                {item.label}
               </div>
             </div>
           ))}
         </div>
 
-        {/* Event Info */}
-        <div className="mt-8 text-center">
-          <p className="text-gray-400 text-xs md:text-sm tracking-wider">
-            <span className="text-cyan-400 font-semibold">3RD - 4TH APRIL 2026</span>
+        <div className="mt-8 pt-6 border-t border-white/10 text-center">
+          <p className="text-xs md:text-sm uppercase tracking-[0.12em] text-white/60">
+            <span className="text-[#c8f059]">3 - 4 APRIL 2026</span> - AB-3 AMPHITHEATRE
           </p>
         </div>
       </div>

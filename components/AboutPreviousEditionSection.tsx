@@ -10,23 +10,23 @@ export default function AboutPreviousEditionSection({
   ];
 
   const baseClasses =
-    "relative px-4 md:px-8 lg:px-20 py-12 md:py-16 overflow-hidden";
-  const glassClasses = " bg-neutral-900/70 border-t border-white/10";
+    "timer-typography relative px-4 md:px-8 lg:px-20 py-12 md:py-16 overflow-hidden";
+  const glassClasses = " bg-[#07080a]/90 border-t border-white/10";
 
   return (
     <section className={baseClasses + (glass ? glassClasses : "")}>
       {/* Decorative background elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-[#c8f059]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-sky-300/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-10 max-w-6xl mx-auto">
-        <h2 className="text-2xl md:text-3xl font-bold">About Previous Edition</h2>
-        <p className="mt-1 text-gray-400 text-sm">
+        <h2 className="timer-headline text-2xl md:text-3xl font-bold">About Previous Edition</h2>
+        <p className="timer-mono mt-2 text-xs md:text-sm text-white/60 uppercase tracking-[0.12em]">
           Highlights from Solve-A-Thon 2025
         </p>
 
         {/* Description */}
-<div className="mt-8 text-gray-300 text-sm md:text-base leading-relaxed space-y-4">
+<div className="mt-8 text-white/75 text-sm md:text-base leading-relaxed space-y-4">
   <p>
     Solve-A-Thon&apos;25 was a 24-hour hackathon hosted by the Hostel Committee of VIT Chennai, uniting passionate innovators to solve real-world challenges across hostel life, sustainability, student well-being, and smart campus technology. The event encouraged empathy-driven thinking and practical, impact-focused solutions.
   </p>
@@ -44,13 +44,13 @@ export default function AboutPreviousEditionSection({
               className="group relative"
             >
               {/* Glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 to-emerald-400/20 opacity-0 group-hover:opacity-100 transition duration-300" />
+              <div className="absolute inset-0 bg-linear-to-br from-[#c8f059]/12 to-sky-300/10 opacity-0 group-hover:opacity-100 transition duration-300" />
 
-              <div className="relative bg-neutral-900/80 border border-cyan-400/40 p-5 sm:p-6 lg:p-8 text-center backdrop-blur-sm hover:border-cyan-400 transition-all duration-300">
-                <div className="text-3xl sm:text-4xl font-bold text-emerald-300 mb-2">
+              <div className="relative bg-[#07080a]/90 border border-white/15 p-5 sm:p-6 lg:p-8 text-center backdrop-blur-sm hover:border-[#c8f059]/55 transition-all duration-300">
+                <div className="text-3xl sm:text-4xl font-bold text-[#c8f059] mb-2">
                   {stat.value}
                 </div>
-                <div className="text-xs sm:text-sm tracking-widest text-gray-400 uppercase font-bold">
+                <div className="text-xs sm:text-sm tracking-widest text-white/55 uppercase font-bold">
                   {stat.label}
                 </div>
               </div>
